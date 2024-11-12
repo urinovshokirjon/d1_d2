@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  postgres_db1:
+    image: postgres:latest
+    container_name: postgres_db1
+    environment:
+      POSTGRES_USER: learn
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: db1
+    ports:
+      - "5434:5432"
+
+  postgres_db2:
+    image: postgres:latest
+    container_name: postgres_db2
+    environment:
+      POSTGRES_USER: learn
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: db2
+    ports:
+      - "5435:5432"
+

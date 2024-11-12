@@ -1,0 +1,24 @@
+
+### Category add
+POST localhost:8080/category
+Content-Type: application/json
+
+{
+  "name": "Veloseped"
+}
+
+### Category update
+PUT localhost:8080/category
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "Veloseped3"
+}
+
+### Category get id
+GET localhost:8080/category/1
+
+
+### Category get all
+GET localhost:8080/category

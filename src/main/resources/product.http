@@ -1,0 +1,28 @@
+
+### Product add
+POST localhost:8080/product
+Content-Type: application/json
+
+{
+  "name": "O'rik",
+  "price": 10000,
+  "categoryId": 1
+}
+
+### Product update
+PUT localhost:8080/category
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Qizil olma",
+  "price": 5000,
+  "categoryId": 2
+}
+
+### Product get id
+GET localhost:8080/category/1
+
+
+### Product get all
+GET localhost:8080/category

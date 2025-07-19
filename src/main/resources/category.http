@@ -4,7 +4,7 @@ POST localhost:8080/category
 Content-Type: application/json
 
 {
-  "name": "Veloseped"
+  "name": "Quruq mevalarwe"
 }
 
 ### Category update
@@ -12,8 +12,8 @@ PUT localhost:8080/category
 Content-Type: application/json
 
 {
-  "id": 4,
-  "name": "Veloseped3"
+  "id": 1,
+  "name": "Mevalar"
 }
 
 ### Category get id

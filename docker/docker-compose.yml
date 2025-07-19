@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+
+  db-master:
+    image: docker.io/bitnami/postgresql:16
+    ports:
+      - '5436:5432'
+    volumes:
+      - 'postgresql_master_data:/bitnami/postgresql'
+    environment:
+      - POSTGRESQL_REPLICATION_MODE=master
+      - POSTGRESQL_REPLICATION_USER=repl_user
+      - POSTGRESQL_REPLICATION_PASSWORD=12345
+      - POSTGRESQL_USERNAME=master
+      - POSTGRESQL_PASSWORD=12345
+      - POSTGRESQL_DATABASE=it_park
+  db-slave:
+    image: docker.io/bitnami/postgresql:16
+    ports:
+      - '5437:5432'
+    depends_on:
+      - db-master
+    environment:
+      - POSTGRESQL_REPLICATION_MODE=slave
+      - POSTGRESQL_REPLICATION_USER=repl_user
+      - POSTGRESQL_REPLICATION_PASSWORD=12345
+      - POSTGRESQL_MASTER_HOST=db-master
+      - POSTGRESQL_PASSWORD=12345
+      - POSTGRESQL_MASTER_PORT_NUMBER=5432
+
+volumes:
+  postgresql_master_data:
+    driver: local

@@ -12,7 +12,6 @@ public class DataSourceAspect {
 
     // Pointcut for any method starting with "get", "find", "read", etc.
     @Pointcut("execution(* uz.urinov..repository..*.find*(..)) || execution(* uz.urinov..repository..*.get*(..)) ")
-//    @Pointcut("execution(* org.springframework.data.repository.CrudRepository+.find*(..))")
     public void readOperation() {
     }
 
@@ -23,7 +22,6 @@ public class DataSourceAspect {
 
     // Pointcut for any method starting with "save", "insert", "update", etc.
     @Pointcut("execution(* uz.urinov..repository..*.*(..)) && !(execution(* uz.urinov..repository..*.find*(..)) || execution(* uz.urinov..repository..*.get*(..)))")
-//    @Pointcut("execution(* org.springframework.data.repository.CrudRepository+.save*(..))")
     public void writeOperation() {
     }
 

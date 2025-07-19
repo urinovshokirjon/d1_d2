@@ -42,6 +42,11 @@ public class ProductController {
         return ResponseEntity.ok().body(productService.getAllProduct());
     }
 
+    @GetMapping("/category-id/{categoryId}")
+    public ResponseEntity<List<ProductResponseDto>> getAllProductCategory(@PathVariable int categoryId) {
+        return ResponseEntity.ok().body(productService.getAllProductCategory(categoryId));
+    }
+
     @DeleteMapping
     public ResponseEntity<String> deleteProduct(@RequestParam int id) {
         return ResponseEntity.ok().body(productService.deleteProduct(id));

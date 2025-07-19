@@ -30,7 +30,7 @@ public class CategoryService {
         return categoryMapper.toDto(entity);
     }
 
-    @Transactional
+
     public CategoryResponseDto updateCategory(CategoryUpdateDto dto) {
         checkName(dto.getName());
         getById(dto.getId());
@@ -38,7 +38,7 @@ public class CategoryService {
         return categoryMapper.toDto(entity);
     }
 
-    @Transactional(readOnly = false)
+
     public CategoryResponseDto getIdCategory(int id) {
         CategoryEntity entity = getById(id);
         return categoryMapper.toDto(entity);

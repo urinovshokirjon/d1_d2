@@ -1,5 +1,6 @@
 package uz.urinov.service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import uz.urinov.dto.product.ProductCreateDto;
@@ -25,7 +26,7 @@ public class ProductService {
         this.categoryService = categoryService;
     }
 
-
+@Transactional
     public ProductResponseDto addProduct(ProductCreateDto dto) {
         categoryService.getById(dto.getCategoryId());
         ProductEntity entity = productRepository.save(productMapper.toEntity(dto));
@@ -56,13 +57,16 @@ public class ProductService {
         return "Product deleted" + id;
     }
 
+    public List<ProductResponseDto> getAllProductCategory(int categoryId) {
+        return productMapper.toDtos(productRepository.findByCategoryId(categoryId));
+    }
+
 
     public ProductEntity getById(Integer id) {
         return productRepository.findById(id).orElseThrow(() -> {
             throw new RuntimeException("Error: No product found for given id: " + id);
         });
     }
-
 
 
 }

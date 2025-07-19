@@ -4,13 +4,13 @@ POST localhost:8080/product
 Content-Type: application/json
 
 {
-  "name": "O'rik",
+  "name": "Olma",
   "price": 10000,
   "categoryId": 1
 }
 
 ### Product update
-PUT localhost:8080/category
+PUT localhost:8080/product
 Content-Type: application/json
 
 {
@@ -21,7 +21,10 @@ Content-Type: application/json
 }
 
 ### Product get id
-GET localhost:8080/category/1
+GET localhost:8080/product/1
+
+###  get all Product category id
+GET http://localhost:8080/product/category-id/1
 
 
 ### Product get all
